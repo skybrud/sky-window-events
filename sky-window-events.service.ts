@@ -26,18 +26,18 @@ interface skyWindowEvents {
 
 		var _this = this;
 
-        var windowReady = $q.defer();
-        var windowLoad = $q.defer();
+		var windowReady = $q.defer();
+		var windowLoad = $q.defer();
 
-        angular.element($window).on('DOMContentLoaded', (event) => windowReady.resolve(event));
-        angular.element($window).on('load', (event) => windowLoad.resolve(event));
-        
+		angular.element($window).on('DOMContentLoaded', (event) => windowReady.resolve(event));
+		angular.element($window).on('load', (event) => windowLoad.resolve(event));
+
 		_this.ready = function() {
-            return windowReady.promise;
+			return windowReady.promise;
 		};
-        _this.load = function() {
-            return windowLoad.promise;
-        };
+		_this.load = function() {
+			return windowLoad.promise;
+		};
 
 		return _this;
 	}
