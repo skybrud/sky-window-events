@@ -14,7 +14,7 @@ interface skyWindowEvents {
 	 * that are resolved with the given event. This allows for then'ing on events, even
 	 * when they have already happened when subscribing. 
 	 * 
-	 * Usage: skyWindowEvents.read().then(function(event) { ... },null);
+	 * Usage: skyWindowEvents.ready().then(function(event) { ... },null);
 	 *
 	 **/
 
