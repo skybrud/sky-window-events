@@ -1,7 +1,7 @@
 /* global angular */
 interface skyWindowEvents {
-	ready(): ng.IPromise<any>;
-	load(): ng.IPromise<any>;
+	ready(): ng.IPromise<Event>;
+	load(): ng.IPromise<Event>;
 }
 
 (function () {
@@ -22,7 +22,7 @@ interface skyWindowEvents {
 
 	skyWindowEvents.$inject = ['$q','$window'];
 
-	function skyWindowEvents($q, $window) {
+	function skyWindowEvents($q:ng.IQService, $window:ng.IWindowService) {
 
 		var _this = this;
 
@@ -32,12 +32,8 @@ interface skyWindowEvents {
 		angular.element($window).on('DOMContentLoaded', (event) => windowReady.resolve(event));
 		angular.element($window).on('load', (event) => windowLoad.resolve(event));
 
-		_this.ready = function() {
-			return windowReady.promise;
-		};
-		_this.load = function() {
-			return windowLoad.promise;
-		};
+		_this.ready = () => windowReady.promise;
+		_this.load = () => windowLoad.promise;
 
 		return _this;
 	}
